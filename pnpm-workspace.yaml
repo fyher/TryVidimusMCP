@@ -1,0 +1,7 @@
+packages:
+  - .
+# Chaîne d'approvisionnement : scripts d'installation désactivés par défaut.
+minimumReleaseAge: 1440
+allowBuilds:
+  esbuild: false
+  unrs-resolver: false

@@ -1,0 +1,33 @@
+{
+  "name": "tryvidimus-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.6.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "tsx bin/tryvidimus-mcp.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src bin test vitest.config.ts",
+    "test": "vitest run --coverage",
+    "build:npm": "node scripts/build.mjs",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@tryvidimus/api-client": "0.1.0",
+    "@tryvidimus/verifier": "0.1.0",
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "@types/node": "^26.6.3",
+    "@vitest/coverage-v8": "^5.0.5",
+    "eslint": "9.39.5",
+    "tsx": "^4.23.15",
+    "typescript": "~5.9.3",
+    "vitest": "^5.0.5",
+    "@eslint/js": "9.39.5",
+    "esbuild": "^0.28.2",
+    "prettier": "^3.9.9",
+    "typescript-eslint": "^8.70.1"
+  }
+}
