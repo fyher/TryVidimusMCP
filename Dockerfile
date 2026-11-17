@@ -11,7 +11,7 @@ RUN pnpm build:npm
 
 FROM node:22-alpine@sha256:1314fb30ec37592d5845e5a160d522c0e680972aa534549940b8d73bde88481a
 WORKDIR /app
-COPY --from=build /app/dist-npm/dist/tryvidimus-mcp.mjs ./tryvidimus-mcp.mjs
-COPY --from=build /app/dist-npm/LICENSE /app/dist-npm/THIRD_PARTY_LICENSES.md ./
+# Same layout as the npm package: the server reads ../package.json next to dist/.
+COPY --from=build /app/dist-npm ./
 USER node
-ENTRYPOINT ["node", "/app/tryvidimus-mcp.mjs"]
+ENTRYPOINT ["node", "/app/dist/tryvidimus-mcp.mjs"]
