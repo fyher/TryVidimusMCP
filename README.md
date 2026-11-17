@@ -9,6 +9,8 @@ without trusting our servers. It talks to the public tryVidimus API (`https://ap
 claude mcp add tryvidimus -e TRYVIDIMUS_API_KEY=sk_test_… -- npx -y @tryvidimus/mcp
 ```
 
+Or as a container: `docker build -t tryvidimus-mcp . && docker run -i --rm -e TRYVIDIMUS_API_KEY=sk_test_… tryvidimus-mcp`.
+
 Use a **sandbox key** (`sk_test_…`). A production key is refused unless `TRYVIDIMUS_MCP_ALLOW_LIVE=true` is set. See [PACKAGE_README.md](PACKAGE_README.md) for the tools and the
 security notes.
 
