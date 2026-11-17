@@ -28,3 +28,18 @@ jobs:
       - run: pnpm lint
       - run: pnpm test
       - run: pnpm build:npm
+
+  docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: docker build -t tryvidimus-mcp .
+      # Le serveur refuse une clé mal formée et s'arrête : preuve que l'image démarre et que le point d'entrée est le bon.
+      - run: |
+          set +e
+          out=$(docker run -i --rm -e TRYVIDIMUS_API_KEY=invalid tryvidimus-mcp 2>&1)
+          code=$?
+          echo "$out"
+          test "$code" -ne 0
+          echo "$out" | grep -q apiKey
